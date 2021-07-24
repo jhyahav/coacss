@@ -1,3 +1,15 @@
+:root {
+  --blue-2: #03045e;
+  --blue-3: #023e8a;
+  --blue-4: #0077b6;
+  --blue-5: #0096c7;
+  --blue-6: #00b4d8;
+  --blue-7: #48cae4;
+  --blue-8: #90e0ef;
+  --blue-9: #ade8f4;
+  --blue-10: #caf0f8;
+}
+
 html,
 body {
   padding: 0;
@@ -13,4 +25,24 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/*Loader + spin animation*/
+
+.loader {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 0.6rem solid var(--blue-10);
+  border-top: 0.6rem solid var(--blue-2);
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
