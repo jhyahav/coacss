@@ -1,17 +1,18 @@
 import { auth, googleAuthProvider } from '../lib/firebase';
+import { useContext } from 'react';
+import { UserContext } from '../lib/context';
 
 export default function Enter(props) {
-    const user = null;
-    const username = null;
-  return (
-    <main>
-        {user ? 
-        !username ? <UsernameForm/> :
-        <LogoutButton/> 
-        : <LoginButton/>
-        }
-    </main>
-  )
+    const { user, username } = useContext(UserContext);
+    return (
+        <main>
+            {user ?
+                !username ? <UsernameForm /> :
+                    <LogoutButton />
+                : <LoginButton />
+            }
+        </main>
+    )
 }
 
 const LoginButton = () => {
