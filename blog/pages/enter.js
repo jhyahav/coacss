@@ -1,5 +1,5 @@
-import { auth, googleAuthProvider } from '../lib/firebase';
-import { useContext } from 'react';
+import { auth, firestore, googleAuthProvider } from '../lib/firebase';
+import { useContext, useState } from 'react';
 import { UserContext } from '../lib/context';
 
 export default function Enter(props) {
@@ -35,5 +35,54 @@ const LogoutButton = () => {
 }
 
 const UsernameForm = () => {
-    return null;
+    const [formValue, setFormValue] = useState('');
+    const [isValid, setIsValid] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const {user, username} = useContext(UserContext);
+    
+    useEffect(() => {
+        checkUsername(formValue);
+    }, [formValue])
+
+    const onFormChange = (e) => {
+        const val = e.target.value.toLowerCase();
+        const charRegex = /^(?=[a-zA-Z0-9._]{3,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/;
+
+        if (val.length < 3) {
+            setFormValue(val);
+            setIsValid(false);
+            setIsLoading(false);
+        }
+        if (charRegex.test(val)) {
+            setFormValue(val);
+            setIsValid(false);
+            setIsLoading(true);
+        }
+
+    }
+
+    const onFormSubmit = (e) => {
+
+    }
+
+    const checkUsername = async (username) => {
+        if (username.length >= 3) {
+            ref = firestore.doc(`usernames/${username}`);
+            const { exists } = await ref.get();
+            console.log('Firestore read executed');
+            setIsValid(!exists);
+            setIsLoading(false);
+        }
+    }
+    return (
+        !username && (
+            <section>
+                <h3>Pick a username!</h3>
+                <form onSubmit={onFormSubmit}>
+                    <input name='username' placeholder='Enter requested username' value={formValue} onChange={onFormChange}/>
+                    <button className='btn-green' type='submit' disabled={!isValid}>Choose</button>
+                </form>
+            </section>
+        )
+    );
 }
