@@ -1,6 +1,7 @@
 import { auth, firestore, googleAuthProvider } from '../lib/firebase';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect, useCallback } from 'react';
 import { UserContext } from '../lib/context';
+import { debounce } from 'lodash';
 
 export default function Enter(props) {
     const { user, username } = useContext(UserContext);
@@ -61,25 +62,39 @@ const UsernameForm = () => {
 
     }
 
-    const onFormSubmit = (e) => {
-
-    }
-
-    const checkUsername = async (username) => {
-        if (username.length >= 3) {
-            ref = firestore.doc(`usernames/${username}`);
-            const { exists } = await ref.get();
-            console.log('Firestore read executed');
-            setIsValid(!exists);
-            setIsLoading(false);
+    const onFormSubmit = async (e) => {
+        e.preventDefault();
+        const userDoc = firestore.doc(`users/${user.uid}`);
+        const usernameDoc = firestore.doc(`usernames/${formValue}`);
+        try {
+            const batch = firestore.batch();
+            batch.set(userDoc, {username: formValue, photoURL: user.photoURL, displayName: user.displayName});
+            batch.set(usernameDoc, {uid: user.uid});
+            await batch.commit();
+            console.log('Batch transaction successful');
+        } catch (error) {
+           console.log('Batch transaction failed: ', error); 
         }
+        
     }
+
+    const checkUsername = useCallback(
+        debounce (async (username) => {
+            if (username.length >= 3) {
+                const ref = firestore.doc(`usernames/${username}`);
+                const { exists } = await ref.get();
+                console.log('Firestore read executed');
+                setIsValid(!exists);
+                setIsLoading(false);
+            }
+        }, 500), 
+    []);
     return (
         !username && (
             <section>
                 <h3>Pick a username!</h3>
                 <form onSubmit={onFormSubmit}>
-                    <input name='username' placeholder='Enter requested username' value={formValue} onChange={onFormChange}/>
+                    <input name='username' placeholder='Enter desired username' spellCheck='false' value={formValue} onChange={onFormChange}/>
                     <button className='btn-green' type='submit' disabled={!isValid}>Choose</button>
                 </form>
             </section>
