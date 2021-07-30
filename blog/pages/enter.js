@@ -3,6 +3,7 @@ import { useContext, useState, useEffect, useCallback } from 'react';
 import { UserContext } from '../lib/context';
 import { debounce } from 'lodash';
 
+//TODO: add user feedback on whether username is valid and/or available!
 export default function Enter(props) {
     const { user, username } = useContext(UserContext);
     return (
@@ -95,9 +96,28 @@ const UsernameForm = () => {
                 <h3>Pick a username!</h3>
                 <form onSubmit={onFormSubmit}>
                     <input name='username' placeholder='Enter desired username' spellCheck='false' value={formValue} onChange={onFormChange}/>
+                    <UsernameMessage username={formValue} isValid={isValid} isLoading={isLoading}/>
                     <button className='btn-green' type='submit' disabled={!isValid}>Choose</button>
                 </form>
             </section>
         )
     );
+}
+
+const UsernameMessage = ( {username, isValid, isLoading}) => {
+    if (isLoading) {
+        return (
+            <p>Checking username...</p>
+        )
+    } else if (isValid) {
+        return (
+            <p className='text-sucess'> "{username}" is available! </p>
+        )
+    } else if (!isValid && username.length > 3) {
+        return (
+            <p className='text-danger'> Sorry, that username is not available.</p>
+        )
+    } else {
+        return <p>Usernames must be between 3 and 15 characters long and may only contain Latin letters and numbers.</p>;
+    }
 }
