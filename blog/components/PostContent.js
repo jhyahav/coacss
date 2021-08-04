@@ -13,7 +13,7 @@ export default function PostContent({ post }) {
                         @{post.username}
                     </a>
                 </Link> {' '}
-                on {createdAt}
+                on {createdAt.toISOString()}
             </span>
             <ReactMarkdown>{post?.content}</ReactMarkdown>
         </div>
