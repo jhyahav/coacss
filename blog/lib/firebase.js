@@ -31,6 +31,9 @@ export async function getUserWithUsername(username) {
 
 export function postToJSON(doc) {
     const data = doc.data();
+    if (!data) {
+        return null;
+    }
     return {
         ...data,
         createdAt: data.createdAt.toMillis(),
