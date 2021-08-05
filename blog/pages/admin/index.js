@@ -1,11 +1,18 @@
-import AuthCheck from "../../components/AuthCheck";
+import AuthCheck from '../../components/AuthCheck';
+import PostList from '../../components/PostList';
+import CreatePost from '../../components/CreatePost';
+import { UserContext } from '../../lib/context';
 
-export default function AdminPostsPage({ }) {
+
+//Uses CSR because SEO/crawling is unimportant here
+export default function AdminPostsPage(props) {
   return (
     <main>
       <AuthCheck>
-        Authenticated content placeholder :-)
+        <PostList />
+        <CreatePost />
       </AuthCheck>
     </main>
   );
 }
+
