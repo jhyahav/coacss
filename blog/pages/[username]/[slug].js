@@ -1,5 +1,6 @@
 import styles from '../../styles/Post.module.css';
 import PostContent from '../../components/PostContent';
+import Metatags from '../../components/Metatags';
 import { firestore, postToJSON, getUserWithUsername } from '../../lib/firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 
@@ -58,6 +59,7 @@ export default function PostPage(props) {
   
   return (
     <main className={styles.container}>
+      <Metatags title={`'${post.title}' by @${post.username} - jonblog`} />
       <section> 
         <PostContent post={post} /> 
       </section>

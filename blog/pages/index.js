@@ -4,6 +4,7 @@ import PostFeed from '../components/PostFeed';
 import { firestore, postToJSON, fromMillis } from '../lib/firebase';
 import { useState } from 'react';
 import { get } from 'lodash';
+import Metatags from '../components/Metatags';
 //import toast from 'react-hot-toast';
 
 const POST_LIMIT = 10;
@@ -43,6 +44,7 @@ export default function Home(props) {
   }
   return (
     <main>
+      <Metatags title='Home'/>
       {/*<button onClick={() => toast.success('Toasty!')}>Display a toast notification</button>*/}
       <PostFeed posts={posts}/>
       {!postsEnd && !isLoading && <button onClick={clientLoadPosts}>Load more posts</button>}
