@@ -32,6 +32,7 @@ main {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 * {
@@ -40,6 +41,18 @@ a {
 
 .hidden {
   display: none;
+}
+
+/*Text*/
+
+.text-success { 
+  font-weight: bold;
+  color: var(--color-green);
+}
+
+.text-danger {
+  font-weight: bold;
+  color: var(--color-red);
 }
 
 /*Navbar*/
@@ -76,6 +89,19 @@ a {
 
 .navbar li {
   border-radius: 50%; 
+}
+
+/*Cards*/
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+}
+
+.card footer {
+  display: flex;
 }
 
 /*Buttons*/
@@ -146,7 +172,17 @@ button.btn-logo {
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
 }
+ /*Input*/
 
+ input {
+   width: 100%;
+   font-size: 1.5rem;
+   outline: none;
+   border: none;
+   padding: 0.25rem 0.5rem;
+   border-radius: 0.5rem;
+   unicode-bidi: plaintext;
+ }
 
 /*Loader + spin animation*/
 

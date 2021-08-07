@@ -37,7 +37,7 @@ function PostItem( {post, admin = false} ) {
                         </h3>
                     </Link>
 
-                    {post.published ? <p className='text-sucess'>Live</p> : <p className='text-danger'>Unpublished</p>}
+                    {post.published ? <p className='text-success'>Live</p> : <p className='text-danger'>Unpublished</p>}
                 </>
             )}
         </div>

@@ -7,7 +7,8 @@ import { firestore, serverTimestamp } from '../lib/firebase';
 
 export default function PostForm({ postDefaults, postRef, preview }) {
     const router = useRouter();
-    const {register, handleSubmit, watch, reset } = useForm({ defaultValues: postDefaults, mode: 'onChange' });
+    const {register, handleSubmit, watch, reset, formState } = useForm({ defaultValues: postDefaults, mode: 'onChange' });
+    const {isValid, isDirty, errors} = formState;
     const updatePost = async ({ content, published }) => {
         await postRef.update({
             content,
@@ -28,12 +29,19 @@ export default function PostForm({ postDefaults, postRef, preview }) {
             )}
 
             <div className={preview ? 'hidden' : 'post-controls'}>
-                <textarea name='content' {...register('content')}> </textarea>
+                <textarea name='content' {...register('content', {
+                    required: {value: true, message:'Your post needs to have some content!'},
+                    maxLength: {value: 15000, message:'Content is too long.'},
+                    minLength: {value: 10, message:'Your post must be at least 10 characters long.'}
+                })
+                }>
+                </textarea>
+                {errors.content && <p className='text-danger'>{errors.content.message}</p>}
                 <fieldset>
                     <input className='checkbox' name='published' type='checkbox' {...register('published')}></input>
                     <label>Published</label>
                 </fieldset>
-                <button type='submit' className='btn-green'>
+                <button type='submit' className='btn-green' disabled={!isValid || !isDirty}>
                     Save changes
                 </button>
             </div>
