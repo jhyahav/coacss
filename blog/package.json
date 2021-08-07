@@ -18,7 +18,8 @@
     "react-firebase-hooks": "^3.0.4",
     "react-hook-form": "^7.12.2",
     "react-hot-toast": "^2.0.0",
-    "react-markdown": "^6.0.3"
+    "react-markdown": "^6.0.3",
+    "sass": "^1.37.5"
   },
   "devDependencies": {
     "eslint": "7.31.0",

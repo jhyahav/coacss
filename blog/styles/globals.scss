@@ -68,27 +68,27 @@ a {
   font-weight: bold;
   border-bottom: 1px solid var(--color-gray);
   z-index: 99;
-}
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-}
+  img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
 
-.navbar img {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
+  li {
+    border-radius: 50%; 
+  }
 
-.navbar li {
-  border-radius: 50%; 
 }
 
 /*Cards*/
@@ -98,10 +98,10 @@ a {
   border-radius: 0.5rem;
   padding: 1rem 2rem;
   margin: 1rem 0;
-}
-
-.card footer {
-  display: flex;
+  
+  footer {
+    display: flex;
+  }
 }
 
 /*Buttons*/
@@ -120,6 +120,47 @@ a {
   border-radius: 0.25rem;
   cursor: pointer;
   margin: 0.5rem 1rem 0.5rem 0;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:disabled, &[disabled] {
+    filter: brightness(80%);
+    cursor: not-allowed;    
+  }
+  
+  &-logo {
+    background-color: var(--color-text);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &-standard {
+    background-color: var(--blue-2);
+    color: white;
+  }
+
+  &-red {
+    background-color: var(--color-red);
+    color: white;
+  }
+
+  &-green {
+    background-color: var(--color-green);
+    color: white;
+  }
+
+  &-google {
+    background-color: white;
+    color: var(--color-text);
+    img {
+      width: 30px;
+      margin-right: 10px;
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -129,49 +170,6 @@ a {
   }
 }
 
-
-button:hover {
-  filter: brightness(90%);
-}
-
-button:disabled,
-button[disabled]{
-  filter: brightness(80%);
-  cursor: not-allowed;
-}
-
-button.btn-standard {
-  background-color: var(--blue-2);
-  color: white;
-}
-
-button.btn-red {
-  background-color: var(--color-red);
-  color: white;
-}
-
-button.btn-green {
-  background-color: var(--color-green);
-  color: white;
-}
-
-button.btn-google {
-  background-color: white;
-  color: var(--color-text);
-}
-
-.btn-google img {
-  width: 30px;
-  margin-right: 10px;
-}
-
-button.btn-logo {
-  background-color: var(--color-text);
-  color: white;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-}
  /*Input*/
 
  input {

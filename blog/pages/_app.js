@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import useUserData from '../lib/hooks';
 import { Toaster } from 'react-hot-toast';
 import { UserContext } from '../lib/context';

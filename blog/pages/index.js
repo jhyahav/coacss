@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import Loader from '../components/Loader';
 import PostFeed from '../components/PostFeed';
 import { firestore, postToJSON, fromMillis } from '../lib/firebase';

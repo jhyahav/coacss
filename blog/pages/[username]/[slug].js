@@ -1,4 +1,4 @@
-import styles from '../../styles/Post.module.css';
+import styles from '../../styles/Post.module.scss';
 import PostContent from '../../components/PostContent';
 import Metatags from '../../components/Metatags';
 import { firestore, postToJSON, getUserWithUsername } from '../../lib/firebase';
