@@ -38,6 +38,10 @@ a {
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 /*Navbar*/
 
 .navbar {
