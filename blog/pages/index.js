@@ -4,7 +4,6 @@ import PostFeed from '../components/PostFeed';
 import { firestore, postToJSON, fromMillis } from '../lib/firebase';
 import { useState } from 'react';
 import Metatags from '../components/Metatags';
-//import toast from 'react-hot-toast';
 
 const POST_LIMIT = 10;
 const query = firestore
