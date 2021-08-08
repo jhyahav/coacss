@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import toast from 'react-hot-toast';
-import Link from 'next/link';
+import ImageUploader from './ImageUploader';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { firestore, serverTimestamp } from '../lib/firebase';
@@ -29,6 +29,7 @@ export default function PostForm({ postDefaults, postRef, preview }) {
             )}
 
             <div className={preview ? 'hidden' : 'post-controls'}>
+                <ImageUploader />
                 <textarea name='content' {...register('content', {
                     required: {value: true, message:'Your post needs to have some content!'},
                     maxLength: {value: 15000, message:'Content is too long.'},
