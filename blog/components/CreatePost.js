@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { kebabCase, debounce } from 'lodash';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import { firestore, auth, serverTimestamp } from "../lib/firebase";
 import { useContext, useState, useCallback, useEffect } from 'react';
 import { UserContext } from '../lib/context';

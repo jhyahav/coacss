@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import ImageUploader from './ImageUploader';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
