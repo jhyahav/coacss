@@ -9,7 +9,7 @@ export default function PostContent({ post }) {
             <span className='text-sm'>
                 Written by{' '}
                 <Link href={`/${post.username}`}>
-                    <a className='text-info'>
+                    <a className='username text-info'>
                         @{post.username}
                     </a>
                 </Link> {' '}
