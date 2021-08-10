@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
     <UserContext.Provider value={userData}>
       <Navbar />
       <Component {...pageProps} />
-      <ToastContainer />
+      <ToastContainer autoClose={3000}/>
     </UserContext.Provider>
   );
 }

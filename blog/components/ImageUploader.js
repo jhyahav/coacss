@@ -1,6 +1,7 @@
 import { auth, storage, STATE_CHANGED } from "../lib/firebase";
 import { useState } from "react";
 import Loader from "./Loader";
+import { toast } from "react-toastify";
 
 export default function ImageUploader() {
     const [isUploading, setIsUploading] = useState(false);
@@ -23,6 +24,7 @@ export default function ImageUploader() {
         .then((url) => {
             setDownloadURL(url);
             setIsUploading(false);
+            toast.success('Image uploaded successfully!');
         })
     }
 

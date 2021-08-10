@@ -1,8 +1,11 @@
 import styles from '../../styles/Post.module.scss';
 import PostContent from '../../components/PostContent';
 import Metatags from '../../components/Metatags';
-import { firestore, postToJSON, getUserWithUsername } from '../../lib/firebase';
+import { firestore, postToJSON, getUserWithUsername, auth } from '../../lib/firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
+import HeartButton from '../../components/HeartButton';
+import AuthCheck from '../../components/AuthCheck';
+import { toast } from 'react-toastify';
 
 export async function getStaticProps({ params }) {
   const {username, slug} = params;
@@ -56,6 +59,7 @@ export default function PostPage(props) {
   const postRef = firestore.doc(props.path);
   const [realtimePost] = useDocumentData(postRef);
   const post = realtimePost || props.post;
+  const hearts = post.heartCount || 0;
   
   return (
     <main className={styles.container}>
@@ -65,7 +69,13 @@ export default function PostPage(props) {
       </section>
       <aside className='card'>
         <p>
-          <strong>{post.heartCount || 0} 🤍</strong>
+          <AuthCheck 
+          fallback={
+            <span className='heart' onClick={() => toast.warn('You need to log in to heart posts.')}>💙</span>
+          }>
+            <HeartButton postRef={postRef} />
+          </AuthCheck>
+          <span>{hearts} heart{hearts != 1 ? 's' : ''}</span>
         </p>
       </aside>
     </main>
