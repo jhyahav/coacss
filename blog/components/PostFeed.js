@@ -8,7 +8,8 @@ export default function PostFeed( {posts, admin} ) {
 
 function PostItem( {post, admin = false} ) {
     const wordCount = post?.content.trim().split(/\s+/g).length;
-    const readTime = (wordCount / 100 + 1).toFixed(0);   
+    const readTime = (wordCount / 100 + 1).toFixed(0);
+    const hearts = post.heartCount || 0;   
     
     return (
         <div className='card'>
@@ -26,7 +27,7 @@ function PostItem( {post, admin = false} ) {
             </Link>
             <footer>
                 <span> {wordCount} words. {wordCount > 100 ? readTime : 'Less than 1'} min. to read. </span>
-                <span className='push-left'>💙 {post.heartCount || 0} hearts</span>
+                <span className='push-left'>💙 {hearts} heart{hearts != 1 ? 's' : ''}</span>
             </footer>
 
             {admin && (
