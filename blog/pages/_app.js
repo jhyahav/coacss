@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+import Navbar from '../components/general/Navbar';
 import '../styles/globals.scss'
 import 'react-toastify/dist/ReactToastify.min.css';
 import useUserData from '../lib/hooks';

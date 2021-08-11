@@ -3,9 +3,9 @@ import Loader from '../components/Loader';
 import PostFeed from '../components/PostFeed';
 import { firestore, postToJSON, fromMillis } from '../lib/firebase';
 import { useState } from 'react';
-import Metatags from '../components/Metatags';
+import Metatags from '../components/general/Metatags';
 
-const POST_LIMIT = 10;
+const POST_LIMIT = 5;
 const query = firestore
   .collectionGroup('posts')
   .where('published', '==', true)

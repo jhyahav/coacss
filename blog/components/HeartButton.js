@@ -2,6 +2,8 @@ import { firestore, increment, auth } from "../lib/firebase";
 import { useDocument } from 'react-firebase-hooks/firestore';
 import { toast } from "react-toastify";
 
+//IDEA: maybe add heartCount as a prop in order to "fake" real-time count updates on client-side rendered pages?
+
 export default function HeartButton({ postRef }) {
     const heartRef = postRef.collection('hearts').doc(auth.currentUser.uid);
     const [heartDoc] = useDocument(heartRef);

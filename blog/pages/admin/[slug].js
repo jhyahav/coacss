@@ -1,4 +1,4 @@
-import AuthCheck from '../../components/AuthCheck';
+import AuthCheck from '../../components/users/AuthCheck';
 import PostManager from '../../components/PostManager';
 
 export default function AdminPostEdit(props) {

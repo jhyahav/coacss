@@ -1,10 +1,10 @@
 import styles from '../../styles/Post.module.scss';
 import PostContent from '../../components/PostContent';
-import Metatags from '../../components/Metatags';
+import Metatags from '../../components/general/Metatags';
 import { firestore, postToJSON, getUserWithUsername, auth } from '../../lib/firebase';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import HeartButton from '../../components/HeartButton';
-import AuthCheck from '../../components/AuthCheck';
+import AuthCheck from '../../components/users/AuthCheck';
 import { toast } from 'react-toastify';
 
 export async function getStaticProps({ params }) {

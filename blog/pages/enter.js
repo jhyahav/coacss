@@ -2,7 +2,7 @@ import { auth, firestore, googleAuthProvider } from '../lib/firebase';
 import { useContext, useState, useEffect, useCallback } from 'react';
 import { UserContext } from '../lib/context';
 import { debounce } from 'lodash';
-import Metatags from '../components/Metatags';
+import Metatags from '../components/general/Metatags';
 
 //TODO: add user feedback on whether username is valid and/or available!
 export default function Enter(props) {
