@@ -1,4 +1,5 @@
 import PostForm from "./PostForm";
+import DeletePost from "./DeletePost";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from "next/link";
@@ -27,6 +28,7 @@ export default function PostManager() {
                         <Link href={`/${post.username}/${post.slug}`}>
                             <button disabled={!post.published}>{post.published ? 'Live view' : 'Publish post to see live view'}</button>
                         </Link>
+                        <DeletePost postRef={postRef}/>
                     </aside>
                 </>
             )}
