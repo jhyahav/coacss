@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { firestore } from '../lib/firebase';
+import { firestore } from '../../lib/firebase';
 import HeartButton from './HeartButton';
-import AuthCheck from './users/AuthCheck';
+import AuthCheck from '../users/AuthCheck';
 import { toast } from 'react-toastify';
 
 export default function PostFeed( {posts, admin} ) {

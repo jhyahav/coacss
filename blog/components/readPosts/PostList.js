@@ -1,6 +1,6 @@
 import PostFeed from "./PostFeed";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { firestore, auth } from "../lib/firebase";
+import { firestore, auth } from "../../lib/firebase";
 
 export default function PostList() {
     const userPostsQuery = firestore.collection('users').doc(auth.currentUser.uid).collection('posts').orderBy('createdAt', 'desc');

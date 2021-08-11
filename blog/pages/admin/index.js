@@ -1,5 +1,5 @@
 import AuthCheck from '../../components/users/AuthCheck';
-import PostList from '../../components/PostList';
+import PostList from '../../components/readPosts/PostList';
 import CreatePost from '../../components/writePosts/CreatePost';
 
 

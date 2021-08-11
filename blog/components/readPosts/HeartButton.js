@@ -1,4 +1,4 @@
-import { firestore, increment, auth } from "../lib/firebase";
+import { firestore, increment, auth } from '../../lib/firebase';
 import { useDocument } from 'react-firebase-hooks/firestore';
 import { toast } from "react-toastify";
 

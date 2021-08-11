@@ -1,6 +1,6 @@
 import styles from '../styles/Home.module.scss'
 import Loader from '../components/general/Loader';
-import PostFeed from '../components/PostFeed';
+import PostFeed from '../components/readPosts/PostFeed';
 import { firestore, postToJSON, fromMillis } from '../lib/firebase';
 import { useState } from 'react';
 import Metatags from '../components/general/Metatags';

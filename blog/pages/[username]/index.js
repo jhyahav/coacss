@@ -1,6 +1,6 @@
 import { getUserWithUsername, postToJSON } from '../../lib/firebase';
 import UserProfile from '../../components/users/UserProfile';
-import PostFeed from '../../components/PostFeed';
+import PostFeed from '../../components/readPosts/PostFeed';
 import Metatags from '../../components/general/Metatags';
 
 export async function getServerSideProps( {query} ) {
