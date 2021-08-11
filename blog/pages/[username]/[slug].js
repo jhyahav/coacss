@@ -63,7 +63,7 @@ export default function PostPage(props) {
   
   return (
     <main className={styles.container}>
-      <Metatags title={`'${post.title}' by @${post.username} - jonblog`} />
+      <Metatags title={`'${post.title}' by @${post.username} - COACSS`} />
       <section> 
         <PostContent post={post} /> 
       </section>
