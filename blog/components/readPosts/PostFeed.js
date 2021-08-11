@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 export default function PostFeed( {posts, admin} ) {
     return posts ? 
     posts.map((post) => <PostItem post={post} key={post.slug} admin={admin}/>) :
-    <div>Looks like there's nothing here...</div>;
+    <div>Looks like there&#39;s nothing here...</div>;
 }
 
 function PostItem( {post, admin = false} ) {

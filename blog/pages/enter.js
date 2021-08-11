@@ -113,7 +113,7 @@ const UsernameMessage = ( {username, isValid, isLoading}) => {
         )
     } else if (isValid) {
         return (
-            <p className='text-sucess'> "{username}" is available! </p>
+            <p className='text-sucess'> &#34;{username}&#34; is available! </p>
         )
     } else if (!isValid && username.length > 3) {
         return (
