@@ -1,6 +1,6 @@
-import { auth, storage, STATE_CHANGED } from "../lib/firebase";
+import { auth, storage, STATE_CHANGED } from "../../lib/firebase";
 import { useState } from "react";
-import Loader from "./Loader";
+import Loader from "../general/Loader";
 import { toast } from "react-toastify";
 
 export default function ImageUploader() {

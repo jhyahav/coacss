@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import ImageUploader from './ImageUploader';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-import { serverTimestamp } from '../lib/firebase';
+import { serverTimestamp } from '../../lib/firebase';
 
 export default function PostForm({ postDefaults, postRef, preview }) {
     const router = useRouter();

@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.scss'
-import Loader from '../components/Loader';
+import Loader from '../components/general/Loader';
 import PostFeed from '../components/PostFeed';
 import { firestore, postToJSON, fromMillis } from '../lib/firebase';
 import { useState } from 'react';

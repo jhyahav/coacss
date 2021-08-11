@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from "next/link";
 import { useDocumentData } from 'react-firebase-hooks/firestore';
-import { firestore, auth } from "../lib/firebase";
+import { firestore, auth } from "../../lib/firebase";
 
 export default function PostManager() {
     const [preview, setPreview] = useState(false);
