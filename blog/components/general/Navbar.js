@@ -10,7 +10,7 @@ export default function Navbar() {
             <ul>
                 <li>
                     <Link href='/'>
-                        <button className='btn-logo'> COACSS </button>
+                        <button className='btn-logo'> Coa &#123;CSS&#125; </button>
                     </Link>
                 </li>
 
