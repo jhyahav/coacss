@@ -7,7 +7,6 @@ import { ToastContainer } from 'react-toastify';
 import { UserContext } from '../lib/context';
 
 /* TODO: Feature ideas:
-0. Security rules, including storage rules.
 1. Update navbar. And a general redesign from the ground up, obviously.
 2. Infinite scroll to load more posts.
 3. Light & dark modes
@@ -18,6 +17,9 @@ import { UserContext } from '../lib/context';
 8. Welcome interface for first-time login
 9. Pinned posts?
 10. About (maybe as a pinned post!)
+
+Done
+0. Security rules, including storage rules.
 */
 
 function MyApp({ Component, pageProps }) {
