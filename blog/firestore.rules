@@ -48,7 +48,7 @@ service cloud.firestore {
 
       function canCreatePost(userId) {
         let isOwner = request.auth.uid == userId;
-        let isNow = requst.time == request.resource.data.createdAt;
+        let isNow = request.time == request.resource.data.createdAt;
         let username = get(/databases/$(database)/documents/users/$(request.auth.uid)).data.username;
         let usernameMatch = request.resource.data.username == username;
         let isValidNewPost = request.resource.data.content.size() < 15000 && request.resource.data.heartCount == 0;
@@ -58,7 +58,7 @@ service cloud.firestore {
 
       function canUpdatePost(userId) {
         let isOwner = request.auth.uid == userId;
-        let isNow = requst.time == request.resource.data.updatedAt;
+        let isNow = request.time == request.resource.data.updatedAt;
         let isValidLength = request.resource.data.content.size() < 15000;
         let updatesLegalFields = !request.resource.data.diff(resource.data).affectedKeys().hasAny(['uid', 'username', 'heartCount']);
 
