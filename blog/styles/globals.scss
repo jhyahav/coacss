@@ -64,6 +64,12 @@ a {
   overflow-x: scroll;
 }
 
+textarea {
+  resize: none;
+  font-size: 1.3rem;
+  height: 60vh;
+}
+
 /*Navbar*/
 
 .navbar {

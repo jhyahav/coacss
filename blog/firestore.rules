@@ -2,8 +2,83 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
-      allow read, write: if
-          request.time < timestamp.date(2021, 8, 22);
+
+      match /posts/{postId} {
+        allow read;
+      }
+
+      match /users/{userId} {
+        allow read;
+        allow create: if isValidUser(userId);
+      }
+
+      match /usernames/{username} {
+        allow read;
+        allow create: if isValidUsername(username);
+      }
+
+      match /users/{userId}/posts/{postId} {
+        allow read;
+        allow create: if canCreatePost(userId);
+        allow write: if canUpdatePost(userId) || canIncrementHearts(userId, postId);
+        allow delete: if request.auth.uid == userId;
+      }
+
+      match /users/{userId}/posts/{postId}/hearts/{heartId} {
+        allow read;
+        allow write: if request.auth.userId == heartId;
+
+      }
+    
+      function isValidUser(userId) {
+        let isOwner = request.auth.uid == userId;
+        let username = request.resource.data.username;
+        let createdValidUsername = existsAfter(/databases/$(database)/documents/usernames/$(username));
+
+        return isOwner && createdValidUsername;
+      }
+
+      function isValidUsername(username) {
+        let isOwner = request.auth.uid == request.resource.data.uid;
+        let isValidLength = username.size() >= 3 && username.size() <= 15;
+        let isValidUserDocument = getAfter(/databases/$(database)/documents/users/$(request.auth.uid)).data.username == username;
+        
+        return isOwner && isValidLength && isValidUserDocument;
+      }
+
+      function canCreatePost(userId) {
+        let isOwner = request.auth.uid == userId;
+        let isNow = requst.time == request.resource.data.createdAt;
+        let username = get(/databases/$(database)/documents/users/$(request.auth.uid)).data.username;
+        let usernameMatch = request.resource.data.username == username;
+        let isValidNewPost = request.resource.data.content.size() < 15000 && request.resource.data.heartCount == 0;
+
+        return isOwner && isNow && usernameMatch && isValidNewPost;
+      }
+
+      function canUpdatePost(userId) {
+        let isOwner = request.auth.uid == userId;
+        let isNow = requst.time == request.resource.data.updatedAt;
+        let isValidLength = request.resource.data.content.size() < 15000;
+        let updatesLegalFields = !request.resource.data.diff(resource.data).affectedKeys().hasAny(['uid', 'username', 'heartCount']);
+
+        return isOwner && isNow && isValidLength && updatesLegalFields;
+      }
+
+      function canIncrementHearts(userId, postId) {
+        let hasValidFields = request.resource.data.diff(resource.data).affectedKeys().hasOnly(['heartCount']);
+        let currentUser = request.auth.uid;
+        let heartDocAfter = existsAfter(/databases/$(database)/documents/users/$(userId)/posts/$(postId)/hearts/$(currentUser));
+        let heartDocBefore = exists(/databases/$(database)/documents/users/$(userId)/posts/$(postId)/hearts/$(currentUser));
+        
+        let heartAdded = !heartDocBefore && heartDocAfter;
+        let heartRemoved = heartDocBefore && !heartDocAfter;
+
+        let countChange = requst.resource.data.heartCount - resource.data.heartCount;
+        let validChange = countChange == 1 || countChange == -1;
+
+        return hasValidFields && validChange && (countChange == 1 ? heartAdded : heartRemoved);
+      }
     }
   }
 }

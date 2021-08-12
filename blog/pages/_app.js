@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import { UserContext } from '../lib/context';
 
 /* TODO: Feature ideas:
-0. Security rules.
+0. Security rules, including storage rules.
 1. Update navbar. And a general redesign from the ground up, obviously.
 2. Infinite scroll to load more posts.
 3. Light & dark modes
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
     <UserContext.Provider value={userData}>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Rock+Salt&family=Heebo&display=swap" rel="stylesheet" />
       </Head>
       <Navbar />
