@@ -43,7 +43,6 @@ export default function Home(props) {
   return (
     <main>
       <Metatags title='Home'/>
-      {/*<button onClick={() => toast.success('Toasty!')}>Display a toast notification</button>*/}
       <PostFeed posts={posts}/>
       {!postsEnd && !isLoading && <button onClick={clientLoadPosts}>Load more posts</button>}
       <Loader show={isLoading}/>

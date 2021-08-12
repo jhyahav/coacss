@@ -1,3 +1,4 @@
+import styles from '../../styles/Admin.module.scss';
 import ReactMarkdown from 'react-markdown';
 import { toast } from 'react-toastify';
 import ImageUploader from './ImageUploader';
@@ -28,7 +29,7 @@ export default function PostForm({ postDefaults, postRef, preview }) {
                 </div>
             )}
 
-            <div className={preview ? 'hidden' : 'post-controls'}>
+            <div className={preview ? 'hidden' : styles.controls}>
                 <ImageUploader />
                 <textarea name='content' {...register('content', {
                     required: {value: true, message:'Your post needs to have some content!'},
@@ -39,7 +40,7 @@ export default function PostForm({ postDefaults, postRef, preview }) {
                 </textarea>
                 {errors.content && <p className='text-danger'>{errors.content.message}</p>}
                 <fieldset>
-                    <input className='checkbox' name='published' type='checkbox' {...register('published')}></input>
+                    <input className='input checkbox' name='published' type='checkbox' {...register('published')}></input>
                     <label>Published</label>
                 </fieldset>
                 <button type='submit' className='btn-green' disabled={!isValid || !isDirty}>

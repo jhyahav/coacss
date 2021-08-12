@@ -1,3 +1,4 @@
+import styles from '../../styles/Admin.module.scss';
 import PostForm from "./PostForm";
 import DeletePost from "./DeletePost";
 import { useState } from 'react';
@@ -15,7 +16,7 @@ export default function PostManager() {
     const [post] = useDocumentData(postRef);
 
     return (
-        <main className='container'>
+        <main className={styles.container}>
             {post && (
                 <>
                     <section>
