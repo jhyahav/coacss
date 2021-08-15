@@ -32,7 +32,7 @@ function PostItem( {post, admin = false} ) {
                 </h2>
             </Link>
             <footer>
-                <span> {wordCount} words. {wordCount > 100 ? readTime : 'Less than 1'} min. to read. </span>
+                <span className='word-count'> {wordCount} words. {wordCount > 100 ? readTime : 'Less than 1'} min. to read. </span>
                 <span className='push-left'>
                     <AuthCheck
                         fallback={

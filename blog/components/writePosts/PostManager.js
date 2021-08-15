@@ -25,7 +25,7 @@ export default function PostManager() {
                     </section>
                     <aside>
                         <h3>Tools</h3>
-                        <button onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview' }</button>
+                        <button className='btn-standard' onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview' }</button>
                         <Link href={`/${post.username}/${post.slug}`}>
                             <button disabled={!post.published}>{post.published ? 'Live view' : 'Publish post to see live view'}</button>
                         </Link>

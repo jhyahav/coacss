@@ -12,7 +12,7 @@ export default function Navbar() {
                 <li>
                     <Link href='/'>
                         <button className='btn-logo'> 
-                        Coa &#123;
+                        Coa&#123;
                         <span id='code'>css</span>
                         &#125; 
                         </button>

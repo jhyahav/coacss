@@ -89,6 +89,26 @@ textarea {
   margin-left: auto;
 }
 
+@media only screen and (max-width: 520px) {
+  footer .word-count {
+    display: none;
+  }
+}
+
+.box-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-center {
+  width: 20%;
+  display: block;
+  border-radius: 50%;
+  margin: auto;
+  max-width: 10rem;
+}
+
 /*Buttons*/
 .btn, button {
   background-color: var(--color-gray);
@@ -116,12 +136,14 @@ textarea {
   }
   
   &-logo {
-    background-color: var(--color-text);
-    color: white;
+    background-color: rgb(1,1,1,0);
+    color: var(--color-text);
     font-family: 'Rock Salt', cursive;
+    font-weight: 900;
     text-transform: uppercase;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0;
+    margin: 0.5rem;
   }
 
   &-standard {
