@@ -3,8 +3,6 @@ import { useState } from "react";
 import Loader from "../general/Loader";
 import { toast } from "react-toastify";
 
-//TODO: fix Firebase Storage rules issue
-
 export default function ImageUploader() {
     const [isUploading, setIsUploading] = useState(false);
     const [progress, setProgress] = useState(0);

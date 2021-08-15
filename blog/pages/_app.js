@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Rock+Salt&family=Heebo&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Rock+Salt&family=VT323&family=Heebo&display=swap" rel="stylesheet" />
       </Head>
       <Navbar />
       <Component {...pageProps} />
