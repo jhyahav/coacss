@@ -44,7 +44,7 @@ export default function Home(props) {
     <main>
       <Metatags title='Home'/>
       <PostFeed posts={posts}/>
-      {!postsEnd && !isLoading && <button onClick={clientLoadPosts}>Load more posts</button>}
+      {!postsEnd && !isLoading && <button className='btn-standard load-more' onClick={clientLoadPosts}>Load more posts</button>}
       <Loader show={isLoading}/>
       {postsEnd && <p>No more posts to show!</p>}
     </main>

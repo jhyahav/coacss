@@ -11,7 +11,7 @@ export default function ImageUploader() {
     const uploadFile = async (e) => {
         const file = Array.from(e.target.files)[0];
         const extension = file.type.split('/')[1];
-        const storageRef = storage.ref(`uploads/${auth.currentUser.uid}/${Date.now}.${extension}`);
+        const storageRef = storage.ref(`uploads/${auth.currentUser.uid}/${Date.now()}.${extension}`);
 
         setIsUploading(true);
         const task = storageRef.put(file);

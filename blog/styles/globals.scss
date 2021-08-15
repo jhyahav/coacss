@@ -126,6 +126,10 @@ textarea {
   cursor: pointer;
   margin: 0.5rem 1rem 0.5rem 0;
 
+  load-more {
+    justify-content: center;
+  }
+
   &:hover {
     filter: brightness(90%);
   }
