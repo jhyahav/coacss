@@ -106,14 +106,14 @@ const UsernameForm = () => {
     );
 }
 
-const UsernameMessage = ( {username, isValid, isLoading}) => {
+const UsernameMessage = ( {username, isValid, isLoading }) => {
     if (isLoading) {
         return (
             <p>Checking username...</p>
         )
     } else if (isValid) {
         return (
-            <p className='text-sucess'> &#34;{username}&#34; is available! </p>
+            <p className='text-success'> &#34;{username}&#34; is available! </p>
         )
     } else if (!isValid && username.length > 3) {
         return (
