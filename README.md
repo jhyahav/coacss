@@ -43,7 +43,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Acknowledgments
 
-Based on [React Firebase Chat App tutorial](https://fireship.io/lessons/react-firebase-chat-app-tutorial/) from [fireship.io](https://fireship.io/).
+Based on the [Next.js Firebase course](https://fireship.io/lessons/react-firebase-chat-app-tutorial/) from [fireship.io](https://fireship.io/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
