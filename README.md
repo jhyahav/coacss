@@ -13,7 +13,7 @@
 <h3 align="center">CoACSS</h3>
 
   <p align="center">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+    Confessions of a computer science student: a responsive social blogging web app.
   </p>
 </div>
 
@@ -23,7 +23,12 @@
 
 [![screenshot of CoACSS][product-screenshot]](https://coacss.vercel.app/)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed dolor eiusmod tempor incididunt
+This web app leverages the power of Next.js, using a combination of rendering methods to strike a perfect balance between performance and user experience.
+Features:
+
+- user authentication with Firebase Auth, enabling user profiles with custom display names which show all of a user's posts in one convenient place
+- markdown post editor supports user-uploaded images and makes it possible to edit posts after they've been uploaded
+- interact with other users' posts by giving them hearts, which are counted in real time
 
 ### Built with
 
@@ -43,7 +48,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Acknowledgments
 
-Based on the [Next.js Firebase course](https://fireship.io/lessons/react-firebase-chat-app-tutorial/) from [fireship.io](https://fireship.io/).
+Based on the [Next.js Firebase course](https://fireship.io/courses/react-next-firebase/) from [fireship.io](https://fireship.io/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
