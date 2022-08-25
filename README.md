@@ -10,10 +10,10 @@
     <img src="public/favicon.ico" alt="blog icon" width="80" height="80">
   </a>
 
-<h3 align="center">CoACSS</h3>
+<h3 align="center">COACSS</h3>
 
   <p align="center">
-    Confessions of a computer science student: a responsive social blogging web app.
+    Confessions of a Computer Science Student: a responsive social blogging web app.
   </p>
 </div>
 
