@@ -29,6 +29,7 @@ Features:
 - user authentication with Firebase Auth, enabling user profiles with custom display names which show all of a user's posts in one convenient place
 - markdown post editor supports user-uploaded images and makes it possible to edit posts after they've been uploaded
 - interact with other users' posts by giving them hearts, which are counted in real time
+- Firestore security rules prevent unauthorized reads/writes
 
 ### Built with
 
@@ -56,7 +57,7 @@ Based on the [Next.js Firebase course](https://fireship.io/courses/react-next-fi
 
 [license-url]: https://github.com/jhyahav/portfolio/blob/master/LICENSE.txt
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0a66c2
 [linkedin-url]: https://linkedin.com/in/jhyahav/
 [product-screenshot]: public/screenshot.png
 [next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
