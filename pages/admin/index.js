@@ -1,17 +1,21 @@
-import AuthCheck from '../../components/users/AuthCheck';
-import PostList from '../../components/readPosts/PostList';
-import CreatePost from '../../components/writePosts/CreatePost';
-
+import AuthCheck from "../../components/users/AuthCheck";
+import PostList from "../../components/readPosts/PostList";
+import CreatePost from "../../components/writePosts/CreatePost";
+import Head from "next/head";
 
 //Uses CSR because SEO/crawling is unimportant here
 export default function AdminPostsPage(props) {
   return (
-    <main>
-      <AuthCheck>
-        <PostList />
-        <CreatePost />
-      </AuthCheck>
-    </main>
+    <>
+      <Head>
+        <title>Manage posts - COACSS</title>
+      </Head>
+      <main>
+        <AuthCheck>
+          <PostList />
+          <CreatePost />
+        </AuthCheck>
+      </main>
+    </>
   );
 }
-

@@ -1,61 +1,63 @@
+// TODO: fix styling of upload button and of "live" checkbox!
+
 .container {
-    min-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  section {
+    width: 60vw;
+    margin-right: 1rem;
+  }
+  aside {
     display: flex;
-    section {
-        width: 60vw;
-        margin-right: 1rem;
-    }
-    aside {
-        display: flex;
-        flex-direction: column;
-        width: 20%;
-        min-width: 250px;
-        min-height: 200px;
-        text-align: center;
-        position: sticky;
-        top: 80px;
-        height: 0;
-    }
+    flex-direction: column;
+    width: 20%;
+    min-width: 250px;
+    min-height: 200px;
+    text-align: center;
+    position: sticky;
+    top: 80px;
+    height: 0;
+  }
 }
 
 .controls {
-    display: flex;
-    flex-direction: column;
-    textarea {
-        height: 60vh;
-        border: none;
-        outline: none;
-        padding: 0.5rem;
-        font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  textarea {
+    height: 60vh;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: 1.25rem;
   }
 }
-  
+
 .input {
-    outline: none;
-    border: none;
-    font-size: 2.5rem;
-    width: 100%;
-    padding: 5px 10px;
+  outline: none;
+  border: none;
+  font-size: 2.5rem;
+  width: 100%;
+  padding: 5px 10px;
 }
-  
+
 .checkbox {
-    display: inline;
-    width: auto;
+  display: inline;
+  width: auto;
 }
 
 .label {
-    display: flex;
+  display: flex;
 }
-  
+
 @media only screen and (max-width: 768px) {
-    .container {
-      flex-direction: column;
-        section {
-            width: 100%;
-        }
-        aside {
-            width: 100%;
-            position: relative;
-        }
+  .container {
+    flex-direction: column;
+    section {
+      width: 100%;
     }
+    aside {
+      width: 100%;
+      position: relative;
+    }
+  }
 }
