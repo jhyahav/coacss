@@ -3,7 +3,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/jhyahav/blog">
@@ -55,7 +54,7 @@ Based on the [Next.js Firebase course](https://fireship.io/courses/react-next-fi
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[license-url]: https://github.com/jhyahav/portfolio/blob/master/LICENSE.txt
+[license-url]: https://github.com/jhyahav/coacss/blob/main/LICENSE.txt
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0a66c2
 [linkedin-url]: https://linkedin.com/in/jhyahav/

@@ -72,13 +72,12 @@ textarea {
   resize: none;
   font-size: 1.3rem;
   height: 60vh;
+  border-radius: 0.5rem;
 }
 
 fieldset {
   border: none;
 }
-
-/*Navbar*/
 
 /*Cards*/
 
@@ -101,6 +100,11 @@ fieldset {
   footer .word-count {
     display: none;
   }
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
 }
 
 .box-center {

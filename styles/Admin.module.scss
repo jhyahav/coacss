@@ -45,6 +45,27 @@
   width: auto;
 }
 
+.url {
+  width: 80%;
+  margin-left: auto;
+  background: white;
+  padding: 5px;
+  margin: 5px 0;
+  overflow-x: scroll;
+  cursor: pointer;
+}
+
+.image_input {
+  display: none;
+}
+
+.download_label {
+  font-size: 0.75rem;
+  > * {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     flex-direction: column;
