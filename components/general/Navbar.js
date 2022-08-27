@@ -1,51 +1,61 @@
-import navstyles from '../../styles/Navbar.module.scss';
-import Link from 'next/link';
-import { useContext } from 'react';
-import { UserContext } from '../../lib/context';
+import navstyles from "../../styles/Navbar.module.scss";
+import Link from "next/link";
+import { useContext } from "react";
+import { UserContext } from "../../lib/context";
+import { auth } from "../../lib/firebase";
+import router from "next/router";
 
 export default function Navbar() {
-    const { user, username } = useContext(UserContext);
+  const { user, username } = useContext(UserContext);
 
-    return (
-        <nav className={navstyles.navbar}>
-            <ul>
-                <li>
-                    <Link href='/'>
-                        <button className='btn-logo'> 
-                        Coa&#123;
-                        <span id='code'>css</span>
-                        &#125; 
-                        </button>
-                    </Link>
-                </li>
+  const handleLogout = () => {
+    auth.signOut();
+    router.reload();
+  };
 
-                {/* logged in - username returns true*/}
-                {username && (
-                    <>
-                        <li>
-                            <Link href='/admin'>
-                                <button className='btn-standard'> Write posts </button>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href={`/${username}`}>
-                                <img src={user?.photoURL} />
-                            </Link>
-                        </li>
-                    </>
-                )}
+  return (
+    <nav className={navstyles.navbar}>
+      <ul>
+        <li>
+          <Link href="/">
+            <button className="btn-logo">
+              Coa&#123;
+              <span id="code">css</span>
+              &#125;
+            </button>
+          </Link>
+        </li>
 
-                {/* logged out - username = null */}
-                {!username && (
-                    <li>
-                        <Link href='/enter'>
-                            <button className='btn-standard'> Log in </button>
-                        </Link>
-                    </li>
-                )}
-            </ul>
-        </nav>
-    );
+        {/* logged in - username returns true*/}
+        {username && (
+          <>
+            <li>
+              <Link href="/admin">
+                <button className="btn-standard"> My posts </button>
+              </Link>
+            </li>
+            <li>
+              <button className="logout-button" onClick={handleLogout}>
+                Log out
+              </button>
+              <Link href={`/${username}`}>
+                <img src={user?.photoURL} />
+              </Link>
+            </li>
+          </>
+        )}
+
+        {/* logged out - username = null */}
+        {!username && (
+          <li>
+            <Link href="/enter">
+              <button className="btn-standard"> Log in </button>
+            </Link>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
 }
 
 /*

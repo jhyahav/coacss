@@ -74,6 +74,10 @@ textarea {
   height: 60vh;
 }
 
+fieldset {
+  border: none;
+}
+
 /*Navbar*/
 
 /*Cards*/
@@ -131,8 +135,8 @@ button {
   cursor: pointer;
   margin: 0.5rem 1rem 0.5rem 0;
 
-  load-more {
-    justify-content: center;
+  #load-more {
+    margin-left: auto;
   }
 
   &:hover {
